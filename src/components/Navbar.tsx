@@ -2,7 +2,8 @@ import { useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { ROUTES } from "../constant/routesPath";
 import clsx from "clsx";
-import { Menu, X } from "lucide-react"; // Icon library, install using `npm install lucide-react`
+import { Menu, X } from "lucide-react";
+import logo from "../assets/logo.png";
 
 interface MenuItems {
   label: string;
@@ -27,10 +28,7 @@ const Navbar = () => {
   return (
     <nav className="bg-gray-800 p-4">
       <div className="container mx-auto flex justify-between items-center">
-        {/* Logo */}
         <div className="text-white text-xl font-bold">Employee Form</div>
-
-        {/* Desktop Menu */}
         <ul className="hidden md:flex space-x-6">
           {menuItems.map((item) => (
             <li key={item.path}>
