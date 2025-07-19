@@ -3,7 +3,7 @@ import { NavLink, useLocation } from "react-router-dom";
 import { ROUTES } from "../constant/routesPath";
 import clsx from "clsx";
 import { Menu, X } from "lucide-react"; // Icon library, install using `npm install lucide-react`
-
+import logo from "../assets/ChatGPT Image Jul 19, 2025, 05_59_41 PM.png"; // Adjust the path to your logo image
 interface MenuItems {
   label: string;
   path: string;
@@ -25,12 +25,16 @@ const Navbar = () => {
   const closeMenu = () => setIsOpen(false);
 
   return (
-    <nav className="bg-gray-800 p-4">
-      <div className="container mx-auto flex justify-between items-center">
-        {/* Logo */}
-        <div className="text-white text-xl font-bold">Employee Form</div>
+    <nav className="bg-blue-100 p-4">
+      <div className="container mx-auto flex justify-between md:justify-around items-center">
+        <div>
+          <img
+            src={logo}
+            alt="Logo"
+            className="w-30 h-12 object-cover rounded-full"
+          />
+        </div>
 
-        {/* Desktop Menu */}
         <ul className="hidden md:flex space-x-6">
           {menuItems.map((item) => (
             <li key={item.path}>
@@ -39,7 +43,7 @@ const Navbar = () => {
                 onClick={closeMenu}
                 className={({ isActive }) =>
                   clsx(
-                    "text-white font-medium text-lg hover:text-gray-300 transition",
+                    "text-gray-800 font-medium text-lg hover:text-gray-500 transition",
                     isActive && "underline underline-offset-4"
                   )
                 }
@@ -54,7 +58,7 @@ const Navbar = () => {
         <div className="md:hidden">
           <button
             onClick={toggleMenu}
-            className="text-white focus:outline-none"
+            className="text-gray-800 focus:outline-none"
             aria-label="Toggle Menu"
           >
             {isOpen ? <X size={28} /> : <Menu size={28} />}
@@ -72,7 +76,7 @@ const Navbar = () => {
                 onClick={closeMenu}
                 className={({ isActive }) =>
                   clsx(
-                    "block text-white text-lg font-medium hover:text-gray-300 transition",
+                    "block text-gray-800 text-lg text-center font-medium hover:text-gray-500 transition",
                     isActive && "underline underline-offset-4"
                   )
                 }
